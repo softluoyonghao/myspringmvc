@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- - Copyright 1999-2011 Alibaba Group. - - Licensed under the Apache License, 
+	Version 2.0 (the "License"); - you may not use this file except in compliance 
+	with the License. - You may obtain a copy of the License at - - http://www.apache.org/licenses/LICENSE-2.0 
+	- - Unless required by applicable law or agreed to in writing, software - 
+	distributed under the License is distributed on an "AS IS" BASIS, - WITHOUT 
+	WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. - See the 
+	License for the specific language governing permissions and - limitations 
+	under the License. -->
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<appender name="${log4j.filelogger}" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="${log4j.gbp.filelogger.path}" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+	</appender>
+ 	<appender name="druid.sql.Statement" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.db.statement.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="druid.stat" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.db.stat.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="druid.stat.error" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.db.stat.error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+	<appender name="gbp.batch" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.batch.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="gbp.biz.error" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.biz.error.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="ERROR" />
+		</filter>
+	</appender>
+	<appender name="gbp.biz.warn" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.biz.warn.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="WARN" />
+		</filter>
+	</appender>
+	<appender name="gbp.biz.info" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.biz.info.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="INFO" />
+		</filter>
+	</appender>
+	<appender name="gbp.biz.debug" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../logs/gbp.biz.debug.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] (%c:%L) - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+	<appender name="${log4j.consolelogger}" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd/MM/yy hh:mm:ss:sss z}] %t %5p %c{2}: %m%n" />
+		</layout>
+	</appender>
+ 	<logger name="druid.sql.Statement" additivity="false">        
+        <level value="DEBUG" />        
+        <appender-ref ref="druid.sql.Statement" />        
+    </logger>
+<!--	<logger name="druid.sql.ResultSet" additivity="false">        
+        <level value="DEBUG" />        
+        <appender-ref ref="druid.sql.ResultSet" />        
+    </logger> -->
+    <category name="com.alibaba.druid">        
+	 	 <level value="DEBUG" />      
+	     <appender-ref ref="druid.stat" /> 
+	     <appender-ref ref="druid.stat.error" />     
+	</category>
+	<category name="org.quartz">        
+	 	 <level value="INFO" />      
+	     <appender-ref ref="gbp.batch" />     
+	</category>
+	<category name="com.hanhua.gbp.core.batch">        
+	 	 <level value="${log4j.level}" />      
+	     <appender-ref ref="gbp.batch" />     
+	</category>
+	<category name="com.hanhua">        
+	 	 <level value="${log4j.level}" />      
+	     <appender-ref ref="gbp.biz.debug" /> 
+	     <appender-ref ref="gbp.biz.info" />  
+	     <appender-ref ref="gbp.biz.warn" />  
+	     <appender-ref ref="gbp.biz.error" />     
+	</category>
+	<category name="com.epik">        
+	 	 <level value="${log4j.level}" />      
+	     <appender-ref ref="gbp.biz.debug" /> 
+	     <appender-ref ref="gbp.biz.info" />  
+	     <appender-ref ref="gbp.biz.warn" />  
+	     <appender-ref ref="gbp.biz.error" />     
+	</category>
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="LOGFILE" />
+	</root>
+</log4j:configuration>

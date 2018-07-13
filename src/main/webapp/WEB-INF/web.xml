@@ -9,18 +9,10 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext-datasource.xml,classpath:applicationContext-mybatits.xml</param-value>
     </context-param>
-    <!--log的配置-->
-    <context-param>
-        <param-name>log4jConfigLocation</param-name>
-        <param-value>classpath:log4j.xml</param-value>
-    </context-param>
-
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <listener>
-        <listener-class>org.apache.commons.logging.</listener-class>
-    </listener>
+
 
     <!-- SpringMVC前端控制器 -->
     <servlet>

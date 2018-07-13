@@ -22,11 +22,18 @@
     <!--添加注解驱动，依赖注入bean-->
     <mvc:annotation-driven/>
 
-    <!--配置视图解析器-->
-    <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/><!--设置JSP文件的目录位置-->
-        <property name="suffix" value=".jsp"/>
-        <property name="exposeContextBeansAsAttributes" value="true"/>
+
+
+    <!-- html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的-->
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath">
+            <value>/WEB-INF/client/html/</value>
+        </property>
+    </bean>
+    <bean id="htmlviewResolver"
+          class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="suffix" value=".html" />
+        <property name="order" value="0"></property>
+        <property name="contentType" value="text/html;charset=UTF-8"></property>
     </bean>
 </beans>

@@ -140,6 +140,18 @@
       <version>1.2.17</version>
     </dependency>
 
+    <!--HTML视图解析器需要加载的jar包-->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker-gae</artifactId>
+      <version>2.3.18</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <version>3.2.4.RELEASE</version>
+    </dependency>
+
   </dependencies>
 
 

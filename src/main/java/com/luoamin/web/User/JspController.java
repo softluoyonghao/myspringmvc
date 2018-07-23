@@ -24,12 +24,14 @@ public class JspController {
     @RequestMapping(value = "toSubmit")
     public String toSubmit(){
         System.out.println("可以进来了！");
+        System.out.println("你来了吗！");
         return "/test/submit";
     }
     @RequestMapping(value = "submit", method = RequestMethod.POST )
     public String submit(){
         Map map=new HashMap();
         System.out.println("可以进来了！");
+        System.out.println("你来了吗！");
         map.put("sss","key");
         return "/test/submit";
     }

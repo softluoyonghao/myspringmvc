@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../css/zTreeStyle/zTreeStyle.css">
+<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="../../js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript">
+    check: {
+        enable: true
+    }
+    $(document).ready(function() {
+        createTree("jsonData.json", "#treeDemo"); //创建
+        $("#myButton").click(function() {
+            var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+            var nodes = treeObj.getCheckedNodes(true);
+            if(0 === nodes.length) {
+                alert("请选择!");
+                return;
+            }
+            var dataNodes = "";
+            for(var i = 0; i < nodes.length; i++) {
+                dataNodes += nodes[i].name + ",";
+            }
+            alert(dataNodes); //获取选中节点的值
+        });
+    });
+    function createTree(url, treeId) {
+        var zTree; //用于保存创建的树节点
+        var setting = { //设置
+            check: {
+                enable: true
+            },
+            view: {
+                showLine: true, //显示辅助线
+                dblClickExpand: true,
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pid",
+                    rootPId: 0
+                }
+            }
+        };
+        $.ajax({ //请求数据,创建树
+            type: 'GET',
+            url: url,
+            dataType: "json", //返回的结果为json
+            success: function(data) {
+                zTree = $.fn.zTree.init($(treeId), setting, data); //创建树
+            },
+            error: function(data) {
+                alert("创建树失败!");
+            }
+        });
+    }
+
+</script>
+<body>
+<div style="margin-left: 50px;margin-top: 10px;">
+    name:<input id="myData" type="text" placeholder="选中的内容" />
+    <ul id="treeDemo" class="ztree" style="margin-top: 10px; width: 200px; height: 150px;">
+    </ul>
+    <button id="myButton" style="margin-top: 10px;">选中的元素</button>
+</div>
+</body>
+</html>

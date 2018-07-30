@@ -21,8 +21,15 @@
 
     <!--添加注解驱动，依赖注入bean-->
     <mvc:annotation-driven/>
-
-
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+    <!--配置资源映射-->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/upload/**" location="/upload/"/>
 
    <!-- &lt;!&ndash; html视图解析器 必须先配置freemarkerConfig,注意html是没有prefix前缀属性的&ndash;&gt;
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

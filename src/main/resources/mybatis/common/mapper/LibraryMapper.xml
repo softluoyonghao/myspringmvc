@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace= "com.luoamin.dao.LibraryMapper" >
+  <resultMap id= "BaseResultMap" type= "Library">
+    <id column ="id" property="id" jdbcType= "VARCHAR" />  
+    <result column ="pid" property="pid" jdbcType= "VARCHAR" />  
+    <result column ="name" property="name" jdbcType= "VARCHAR" />  
+    <result column ="create_time" property="create_time" jdbcType= "TIMESTAMP" />  
+    <result column ="update_time" property="update_time" jdbcType= "TIMESTAMP" />  
+    <result column ="is_delete" property="is_delete" jdbcType= "INTEGER" />  
+    <result column ="update_user" property="update_user" jdbcType= "VARCHAR" />  
+    <result column ="create_user" property="create_user" jdbcType= "VARCHAR" />  
+    <result column ="level_id" property="level_id" jdbcType= "INTEGER" />  
+    <result column ="order_id" property="order_id" jdbcType= "INTEGER" />  
+  </resultMap>  
+  <sql id= "Base_Column_List">  
+    id, pid , name, create_time, update_time, is_delete, update_user, create_user, level_id,  
+    order_id  
+  </sql>  
+  
+  <!-- 根据id查询分类信息是否存在 -->  
+  <select id= "findLibraryById" parameterType ="java.lang.String" resultType= "java.lang.Integer" >  
+     select count(*) from onair_vms_library  
+     where is_delete=1 and id = #{id,jdbcType=VARCHAR}  
+  </select>  
+  <!-- 根据 pid查询最大排序号 -->  
+  <select id= "findLastLibrary" resultType ="java.lang.Integer" parameterType="Library" >
+     SELECT MAX(order_id) as order_id  FROM onair_vms_library  
+     where pid = #{pid,jdbcType=VARCHAR}  
+  </select>  
+  <!-- 查询所有分类信息 -->  
+  <select id= "findAllLibrary" resultMap ="BaseResultMap">  
+     select  
+     <include refid ="Base_Column_List"/>  
+     from onair_vms_library  
+     where is_delete = 1 order by order_id  
+  </select>  
+   
+  <select id= "selectByPrimaryKey" resultMap ="BaseResultMap" parameterType="java.lang.String" >  
+    select  
+    <include refid ="Base_Column_List" />  
+    from onair_vms_library  
+    where id = #{id,jdbcType=VARCHAR}  
+  </select>  
+  <delete id= "deleteByPrimaryKey" parameterType="java.lang.String" >  
+    update  onair_vms_library set is_delete = 0  
+    where id = #{id,jdbcType=VARCHAR}  
+  </delete>  
+  <insert id= "insert" parameterType="Library" >
+    insert into onair_vms_library (id, pid, name,  
+      create_time, update_time, is_delete,  
+      update_user, create_user, level_id,  
+      order_id)  
+    values (#{id,jdbcType=VARCHAR}, #{pid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},  
+      #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, #{is_delete,jdbcType=INTEGER},  
+      #{update_user,jdbcType=VARCHAR}, #{create_user,jdbcType=VARCHAR}, #{level_id,jdbcType=INTEGER},  
+      #{order_id,jdbcType=INTEGER})  
+  </insert>  
+  <update id= "updateByPrimaryKeySelective" parameterType="Library" >
+    update onair_vms_library  
+    set pid = #{pid,jdbcType=VARCHAR},  
+      name = #{name,jdbcType=VARCHAR},  
+      create_time = #{create_time,jdbcType=TIMESTAMP},  
+      update_time = #{update_time,jdbcType=TIMESTAMP},  
+      is_delete = #{is_delete,jdbcType=INTEGER},  
+      update_user = #{update_user,jdbcType=VARCHAR},  
+      create_user = #{create_user,jdbcType=VARCHAR},  
+      level_id = #{level_id,jdbcType=INTEGER},  
+      order_id = #{order_id,jdbcType=INTEGER}  
+    where id = #{id,jdbcType=VARCHAR}  
+  </update>  
+</mapper>

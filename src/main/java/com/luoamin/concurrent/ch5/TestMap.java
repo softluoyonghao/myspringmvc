@@ -1,7 +1,5 @@
 package com.luoamin.concurrent.ch5;
 
-import com.xiangxue.ch5.ConcurrentHashMap.HashEntry;
-import com.xiangxue.ch5.ConcurrentHashMap.Segment;
 
 public class TestMap {
 	public static void main(String[] args) {

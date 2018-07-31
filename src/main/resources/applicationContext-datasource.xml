@@ -17,7 +17,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"  />
 
         <!-- 基本属性 url、user、password -->
-        <property name="url" value="jdbc:mysql://localhost:3306/springdb" />
+        <property name="url" value="jdbc:mysql://localhost:3306/springdb?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="username" value="luoamin" />
         <property name="password" value="000000" />
 

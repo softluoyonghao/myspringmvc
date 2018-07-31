@@ -80,7 +80,7 @@
                     async: false,
                     type: "post",
                     data:data,
-                    url: "${pageContext.request.contextPath}/library/deleteLibrary ",
+                    url: "<%=request.getContextPath()%>/library/deleteLibrary ",
                     success: function(json){
                         if(json == "success" ){
                             confirmVal = true;
@@ -126,7 +126,7 @@
                 async: false,
                 type: "post",
                 data:data,
-                url: "${pageContext.request.contextPath}/library/updateLibraryName",
+                url: "<%=request.getContextPath()%>/library/updateLibraryName",
                 success : function(json){
                     if(json == "success" ){
                         alert('操作成功!');
@@ -153,7 +153,7 @@
                 $.ajax({
                     async: false,
                     type: "post",
-                    url: "${pageContext.request.contextPath}/library/saveLibrary",
+                    url: "<%=request.getContextPath()%>/library/saveLibrary",
                     success : function(libraryId){
                         if(libraryId != "" ){
                             treeNodes = zTree.addNodes(treeNode, {id:(libraryId), pId:treeNode.id, name:"请输入名称" });
@@ -163,6 +163,7 @@
                         }
                     },
                     error : function(){
+                        console.log("net is error!")
                         alert('亲，网络有点不给力呀！');
                     }
                 });
@@ -219,7 +220,7 @@
                 cache : false, //是否使用缓存
                 type : 'post', //请求方式,post
                 dataType : "json", //数据传输格式
-                url : "<%=request.getContextPath() %>/library/findAllLibrary", //请求链接
+                url : "<%=request.getContextPath()%>/library/findAllLibrary", //请求链接
                 error : function() {
                     alert('亲，网络有点不给力呀2222！');
                 },

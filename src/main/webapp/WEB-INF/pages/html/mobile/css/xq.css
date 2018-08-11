@@ -1,0 +1,54 @@
+@charset "utf-8"; media="screen, projection"
+/*
+ * @title           首页样式
+ * @author       kylinwy
+ * @email         kylinwy@qq.com
+ * @version      1.0
+ * @update      $Date: 2014-05-14 $
+ */
+
+/*----------------------------------------------------------
+	index styles
+-----------------------------------------------------------*/
+
+.section:after,ul.nav:after {content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td { margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent; }
+body { line-height:1; }
+ol,ul { list-style:none; }
+blockquote,q { quotes:none; }
+blockquote:before,blockquote:after,q:before,q:after { content:'';content:none; }
+ins { text-decoration:none; }
+del { text-decoration:line-through; }
+table { border-collapse:collapse;border-spacing:0; }
+
+
+body {background:#f7f7f7;color: #999;font: normal 100% Microsoft YaHei,Helvitica,Verdana,Tohoma,Arial,san-serif;;margin: 0 auto;overflow-x: hidden;}
+a {color: #999;text-decoration: none;-moz-transition: 0.2s color linear;-webkit-transition: 0.2s color linear;transition: 0.2s color linear;}
+a:hover {color: #DF3030;}
+img {	max-width: 100%;border:none;}
+.ml10{margin-left:10px;}
+#top-bar{background:#4bc1d2;-moz-box-shadow:0px 2px 2px #aeaeae ;-webkit-box-shadow:0px 2px 2px #aeaeae; box-shadow:0px 2px 2px #aeaeae; height:46px;width:100%; position:fixed;top:0; z-index:300;}
+.menu{display:block;float:right;background:url(../images/menu.png) no-repeat center center;width:40px;height:40px;margin-top:0.2em;margin-right:1em;background-size:40px auto}
+.quick-nav{display:none;width:100%;height:auto;background:#4bc1d2;padding-bottom:1px;position:absolute;top: 46px;left: 0;z-index:5;}
+.quick-nav li{line-height:47px;padding-left:1em;}
+.quick-nav li a{color:#fff !important;text-shadow:none;font-weight:normal;display:block;}
+.quick-nav li b{display:block;width:12px;height:19px;background:url(../images/arrow.gif) no-repeat;float:right;margin-top:1em;margin-right:2em;background-size:12px auto;}
+.banner{width:100%;margin: 0 auto;padding: 0;font-size:0;margin-top:46px;}
+.banner img{width:100%;}
+.main{display:block;width:100%;border-top:7px solid #b4d59e;text-align:center;margin-bottom:1em;overflow:hidden;}
+.main li{float:left;width:33%;border-right:1px solid #dedede;border-bottom:1px solid #dedede;display: block;}
+.main li.bor_t{border-top:7px solid #b4d59e}
+.main li a{display:block;padding:0.5em 0 0.75em;border:1px solid #fff;border-top:none;background:url(../images/li_bg.png) repeat-x;}
+.main li a img{width:45%;margin: 0 auto;}
+.main li a h2{font-size: 14px;font-weight:normal;color: #666;display: block;margin: 0px auto 0;width: 72px;overflow: hidden;text-align: center;text-overflow: ellipsis;white-space: nowrap;}
+.main li.br0{border-right:none;}
+.btns{ text-align:center;width:100%;margin-top: 2em;margin-bottom:2em;}
+.btns a{padding:15px 8px 15px 40px;border:0;background:#4bc1d2;color:#FFF;font-weight:normal;line-height:20px;text-transform:uppercase;white-space:nowrap;-webkit-border-radius:7px;-moz-border-radius:7px;-ms-border-radius:7px;-o-border-radius:7px;border-radius:7px;-webkit-transition:all 0.2s linear;-moz-transition:all 0.2s linear;-o-transition:all 0.2s linear;transition:all 0.2s linear;-webkit-box-shadow: 0  5px #3eadbd;-moz-box-shadow: 0 5px #3eadbd;box-shadow: 0  5px #3eadbd; position:relative; z-index:1;color:#fff !important;text-shadow:none;font-weight:normal;}
+.btns a.my_wl{padding:15px 8px 15px 60px;}
+.btns a i{display:inline-block; position:absolute;left:5%;top:15%;}
+.btns a i.btn1{background:#4bc1d2 url(../images/icon1.png) no-repeat 1% 40%;margin-right:0.5em;width:50px;height:30px;background-size:50px auto;}
+.btns a i.btn2{background:#4bc1d2 url(../images/icon2.png) no-repeat 1% 40%;width:33px;height:30px;background-size:33px auto}
+#footer { text-align:center;margin-top: 0.5em;margin-bottom: 0.5em;}
+#footer {color:#999; font-family:"微软雅黑";font-size:18px;}
+#footer a{color:#4bc1d2;}
+#footer a:hover{ text-decoration:underline;}

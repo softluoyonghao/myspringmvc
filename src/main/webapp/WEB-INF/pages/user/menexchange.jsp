@@ -230,7 +230,7 @@
                     zTree_Menu = $.fn.zTree.getZTreeObj("treeDemo" );
                     /*  $( ".selectAll").bind("click" , selectAll);   */
                     expandAllFlag();
-                    addClick();
+//                    addClick();
                 }
             });
         }
